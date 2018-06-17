@@ -15,15 +15,15 @@ public class MainPage extends WebPage {
     @JDropdown(
             root = @FindBy(name = "fromPort")
     )
-    public Dropdown departure;
+    private Dropdown departure;
 
     @JDropdown(
             root = @FindBy(name = "toPort")
     )
-    public Dropdown destination;
+    private Dropdown destination;
 
-    @FindBy(className = "btn btn-primary")
-    public Button submit;
+    @FindBy(css = "input[type=submit]")
+    private Button submit;
 
     public MainPage chooseFrom(String from){
         departure.select(from);

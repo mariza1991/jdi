@@ -11,6 +11,6 @@ public class JDITest extends BaseTest {
     public void loginTest(){
         homePage.open();
         login();
-    //    homePage.checkOpened();
+        homePage.checkOpened();
     }
 }

@@ -18,7 +18,9 @@ public class PurchaseTest extends BaseTest {
                 .chooseTo(to)
                 .submitFlight();
 
-        reservePage.checkOpened();
-        reservePage.chooseRandomRaw();
+        reservePage
+                .checkOpenedPage()
+                .getRandomNumber()
+                .chooseFlight();
     }
 }
