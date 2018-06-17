@@ -2,8 +2,7 @@ package blazedemo;
 
 import org.testng.annotations.Test;
 
-import static blazedemo.BlazeDemoSite.mainPage;
-import static blazedemo.BlazeDemoSite.reservePage;
+import static blazedemo.BlazeDemoSite.*;
 
 public class PurchaseTest extends BaseTest {
 
@@ -13,6 +12,7 @@ public class PurchaseTest extends BaseTest {
 
     @Test
     public void test(){
+
         mainPage.open();
         mainPage.chooseFrom(from)
                 .chooseTo(to)
@@ -20,7 +20,20 @@ public class PurchaseTest extends BaseTest {
 
         reservePage
                 .checkOpenedPage()
+                .checkHeader(from, to)
                 .getRandomNumber()
                 .chooseFlight();
+
+        purchasePage
+                .checkOpenedPage()
+                .checkHeader(from, to)
+                .checkTotalPrice()
+                .checkReserveDetails()
+                .sendForm();
+
+        confirmationPage
+                .checkOpenedPage()
+                .checkHeader()
+                .checkConfirmationDetails();
     }
 }
